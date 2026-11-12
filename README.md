@@ -7,7 +7,7 @@ The kit has three parts:
 | Part | What it is |
 |---|---|
 | `skills/` | Two Claude Code skills: **reel-studio** (the full reel method: story engine, premium motion, voice, sound, viewer judge) and **video-studio** (general videos, promos and explainers with HyperFrames, Remotion or fal.ai) |
-| `studio/` | The tools those skills use: new-reel, voice, mix, render, frames, SFX library (about 560 free sounds), motion kit, fonts, reel template |
+| `studio/` | The tools those skills use: new-reel, voice, mix, render, frames, SFX library (650 free sounds in 22 categories), motion kit, fonts, reel template |
 | `setup/` | One script that installs the skills and the companion skills for you |
 
 ---
@@ -150,6 +150,8 @@ The commands it uses (you can run them yourself too):
 | Check the voice | `npm run voice:check -- src/<slug>` |
 | SFX or music (ElevenLabs) | `npm run audio:make -- sfx src/<slug> tick "dry stopwatch tick" --seconds 0.5` |
 | Find a sound in the library | `npm run sfx:find -- whoosh fast` (audition page: `studio/sfx/index.html`) |
+| Pull a new free sound | `npm run sfx:pull -- "rain on window" --cat ambience` shows results, then add `--pick 0,2` |
+| Pull a whole sound pack | `npm run sfx:pull -- --pack universal` (packs live in `studio/sfx/packs/`) |
 | Mix and master | `npm run reel:mix -- src/<slug>` |
 | Live preview | `cd src/<slug>` then `npx hyperframes preview` |
 | Check frames | `npm run reel:frames -- src/<slug>` |
@@ -167,6 +169,17 @@ Files:
 | `studio/` | The tools. Don't put reels here |
 
 ---
+
+## Sounds
+
+650 sounds come with the kit, all free to use without credit (own, Kenney CC0, Openverse CC0). Categories: whoosh, riser, impact, cinematic, glitch, ui, pop, tone, digital, phone, money, paper, typing, camera, clock, crowd, comedy, heartbeat, wedding, fireworks, foley, ambience.
+
+- **Listen:** open `studio/sfx/index.html` in a browser (search box, play button, copy path).
+- **Search:** `npm run sfx:find -- door knock`
+- **Get more:** `npm run sfx:pull -- "glass break" --cat foley` lists free CC0 results from Openverse (no key). Add the ones you like with `--pick 0,3`. Long recordings are cut to 12 s; use `--max 20` for more, `--from 30` to start later.
+- **Packs:** `studio/sfx/packs/universal.json` is the everyday pack (camera, clock, typing, phone, applause, laughs, heartbeat, whooshes, risers, cinematic booms, rain, birds, traffic, wind, drum roll, record scratch, door knocks, dings). Make your own pack file the same way and run `npm run sfx:pull -- --pack <name>`.
+- **Use one in a reel:** in `timeline.json`, `{ "file": "../../studio/sfx/whoosh/own-whoosh-fast.wav", "at": 2.1, "gain": -10 }`.
+- **Make one with AI:** `npm run audio:make -- sfx src/<slug> tick "dry stopwatch tick" --seconds 0.5` (ElevenLabs key).
 
 ## Limits to know
 

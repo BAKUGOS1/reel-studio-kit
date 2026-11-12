@@ -128,7 +128,7 @@ const TAGS = {
   glitch: 'digital error flash stutter', ui: 'click tap tick toggle interface', pop: 'bubble caption-pop appear', tone: 'ding chime bell success error notification', digital: 'game blip laser powerup',
   phone: 'notification ring buzz vibrate', money: 'coins cash rupees note register shagun', paper: 'page book card diary turn crumple sign', typing: 'keyboard typewriter type-on search',
   camera: 'shutter photo flash', clock: 'tick tock timer alarm countdown deadline', crowd: 'laugh applause cheer party people', comedy: 'drum joke cartoon punchline', heartbeat: 'tension nervous',
-  wedding: 'dhol manjira ghungroo baraat shaadi indian', fireworks: 'diwali rocket sutli bomb fuse crackle patakha anar', foley: 'footstep cloth door bag', misc: '',
+  wedding: 'dhol manjira ghungroo baraat shaadi indian', fireworks: 'diwali rocket sutli bomb fuse crackle patakha anar', foley: 'footstep cloth door bag knock', ambience: 'room-tone background rain wind birds city traffic street', misc: '',
 };
 function measure(f) {
   const r = ff(['-i', f, '-af', 'volumedetect', '-f', 'null', '-']);
@@ -188,13 +188,15 @@ if (cmd === 'openverse') {
   if (!res.ok) { console.error('Openverse', res.status, (await res.text()).slice(0, 200)); process.exit(1); }
   // Wikimedia's LL-Q… files are word-pronunciation recordings, not sound effects: leave them out. --pick 0,2 takes listed indices.
   const all = (await res.json()).results.filter(r => r.license === 'cc0' && r.url && !/^LL-Q[0-9]/.test(r.title || '')), from = +(a.from || 0);
-  const hits = a.pick ? String(a.pick).split(',').map(Number).map(i => all[i]).filter(Boolean) : all.slice(0, n);
+  const ids = a.ids ? String(a.ids).split(',') : null;
+  const hits = ids ? all.filter(r => ids.some(id => String(r.id).startsWith(id))) : a.pick ? String(a.pick).split(',').map(Number).map(i => all[i]).filter(Boolean) : all.slice(0, n);
+  if (ids && hits.length < ids.length) console.log(`  note: ${ids.length - hits.length} id(s) no longer in the results for "${q}"`);
   console.log(`${all.length} CC0 results for "${q}"`);
   const sources = fs.existsSync(SOURCES) ? JSON.parse(fs.readFileSync(SOURCES, 'utf8')) : [], have = new Set(sources.map(s => s.file));
   const tmp = path.join(ROOT, '.build', 'sfx-fetch'); fs.mkdirSync(tmp, { recursive: true });
   for (const r of hits) {
     const file = `${cat}/openverse-${slug(r.title || 'sound').slice(0, 48)}-${String(r.id).slice(0, 8)}.wav`;
-    console.log(`${a.dry ? 'would add' : 'add'}  [${all.indexOf(r)}] ${file}  ${((r.duration || 0) / 1000).toFixed(1)} s  by ${r.creator || '?'} (${r.source})`);
+    console.log(`${a.dry ? 'would add' : 'add'}  [${all.indexOf(r)}] ${file}  id ${String(r.id).slice(0, 8)}  ${((r.duration || 0) / 1000).toFixed(1)} s  by ${r.creator || '?'} (${r.source})`);
     if (a.dry || have.has(file)) continue;
     const d = await fetch(r.url); if (!d.ok) { console.error('  skip', d.status); continue; }
     const t = path.join(tmp, 'o.' + (r.filetype || 'mp3')); fs.writeFileSync(t, Buffer.from(await d.arrayBuffer())); toWavCut(t, path.join(LIB, file), max, from);

@@ -13,6 +13,8 @@ studio/sfx/<category>/<source>-<name>.<ext>
 | `node studio/tools/sfx-library.mjs fetch` | On a new machine: download the Mixkit files listed listed in `sources.json` |
 | `node studio/tools/sfx-synth.mjs` | Rebuild our own sounds (`own-*`) |
 | `node studio/tools/sfx-library.mjs openverse "indian wedding dhol" --cat wedding [--pick 0,2] [--from 30] [--max 12] [--dry]` | Add CC0 recordings from Openverse (no key); creator and page go in `sources.json` |
+| `npm run sfx:pull -- "<what>" --cat <category>` then `--pick 0,2` | The easy way to add CC0 sounds; rebuilds the catalog after |
+| `npm run sfx:pull -- --pack universal` | Pull a whole pack listed in `packs/<name>.json` (Openverse id prefixes, so the same files come back) |
 
 In a reel's `timeline.json`, point an effect at the library directly: `{ "file": "../../studio/sfx/whoosh/own-whoosh-fast.wav", "at": 2.1, "gain": -10 }`.
 

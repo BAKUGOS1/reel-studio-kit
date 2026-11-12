@@ -1,0 +1,27 @@
+{
+  "name": "universal",
+  "about": "Everyday sounds most reels need, all CC0 from Openverse (mostly Freesound). Ids are Openverse id prefixes, so the same files come back every time.",
+  "items": [
+    { "q": "camera shutter", "cat": "camera", "max": 3, "ids": ["3290f0e3", "3b3d0256", "a5cb320c", "c6cdcb56"] },
+    { "q": "clock ticking", "cat": "clock", "max": 6, "ids": ["d4ea3ac7", "815ccec4"] },
+    { "q": "clock ticking", "cat": "clock", "max": 12, "ids": ["24018447"] },
+    { "q": "keyboard typing", "cat": "typing", "max": 8, "ids": ["4bfd99d0", "07c061b3", "139eba9e"] },
+    { "q": "phone notification", "cat": "phone", "max": 4, "ids": ["8688d011", "c3af46e7", "a865e0c1", "dffee897"] },
+    { "q": "phone vibrate", "cat": "phone", "max": 4, "ids": ["b9eb1705", "e73a858e", "2fe0763d"] },
+    { "q": "crowd applause", "cat": "crowd", "max": 10, "ids": ["8210c379", "2012f04f", "a4eeb7da"] },
+    { "q": "crowd laughter", "cat": "crowd", "max": 6, "ids": ["59ec46bf", "f3420787"] },
+    { "q": "heartbeat", "cat": "heartbeat", "max": 6, "ids": ["b61439e8", "f17a90d0", "ab34832f"] },
+    { "q": "whoosh", "cat": "whoosh", "max": 4, "ids": ["eab8a6e2", "f1dc6045", "b7ae7822", "0453066f", "416a411f", "96814a80"] },
+    { "q": "swoosh transition", "cat": "whoosh", "max": 4, "ids": ["2c52e6df", "26ab3948", "34ba7605", "82004786"] },
+    { "q": "riser build up", "cat": "riser", "max": 9, "ids": ["0bd7bf60", "a9465347", "04eb4e22", "2ee8ca85"] },
+    { "q": "cinematic boom", "cat": "cinematic", "max": 10, "ids": ["5f3939f0", "20d884b7", "23b76f21", "8fac9f7f"] },
+    { "q": "rain", "cat": "ambience", "max": 15, "ids": ["a3fcc6d0"] },
+    { "q": "birds morning", "cat": "ambience", "max": 13, "ids": ["05ecad98"] },
+    { "q": "city traffic", "cat": "ambience", "max": 15, "ids": ["a9339c75", "d5af14da"] },
+    { "q": "wind", "cat": "ambience", "max": 8, "ids": ["0346629e"] },
+    { "q": "drum roll", "cat": "comedy", "max": 5, "ids": ["bed39d40", "01639f4d", "0b1585c1"] },
+    { "q": "record scratch", "cat": "comedy", "max": 5, "ids": ["4a313d5d", "74af6cc9", "febeb980"] },
+    { "q": "door knock", "cat": "foley", "max": 4, "ids": ["846d6a69", "152ec777", "500e8f44", "47c0fd51"] },
+    { "q": "notification ding", "cat": "tone", "max": 5, "ids": ["76ebb7d9", "e0a75cff", "aabe1e58", "46a73cd1"] }
+  ]
+}

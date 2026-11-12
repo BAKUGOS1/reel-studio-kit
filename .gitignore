@@ -7,3 +7,4 @@ studio/sfx/**/mixkit-*
 *.tmp
 .DS_Store
 Thumbs.db
+.build/

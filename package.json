@@ -21,7 +21,8 @@
     "sfx:find": "node studio/tools/sfx-library.mjs find",
     "sfx:catalog": "node studio/tools/sfx-library.mjs catalog",
     "sfx:fetch": "node studio/tools/sfx-library.mjs fetch",
-    "prompts:studio": "node studio/tools/build-prompt-studio.mjs"
+    "prompts:studio": "node studio/tools/build-prompt-studio.mjs",
+    "sfx:pull": "node studio/tools/sfx-pull.mjs"
   },
   "engines": {
     "node": ">=22"
