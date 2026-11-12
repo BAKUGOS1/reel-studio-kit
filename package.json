@@ -2,6 +2,7 @@
   "name": "reel-studio-kit",
   "version": "1.0.0",
   "private": true,
+  "license": "MIT",
   "description": "Claude Code skills and tools for making reels, shorts and motion videos in code (HyperFrames + GSAP + ElevenLabs + FFmpeg)",
   "scripts": {
     "setup:skills": "node setup/install-skills.mjs",
