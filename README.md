@@ -17,7 +17,7 @@ The kit has three parts:
 1. Install the software in **Step 1** below.
 2. Run these in a terminal:
    ```bash
-   git clone <this repo url> reel-studio-kit
+   git clone https://github.com/BAKUGOS1/reel-studio-kit.git
    cd reel-studio-kit
    npm install
    npm run setup:skills
