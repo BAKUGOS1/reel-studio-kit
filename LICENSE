@@ -19,9 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-Third-party parts keep their own licences (see "Credits and licences" in README.md):
-sounds in studio/sfx (CC0 or own), fonts in studio/template/assets/fonts (SIL OFL),
-skills/reel-studio/guides/creative-director (CC BY 4.0), skills/reel-studio/guides/hooks (MIT).
