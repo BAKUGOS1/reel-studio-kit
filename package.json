@@ -1,0 +1,44 @@
+{
+  "name": "reel-studio-kit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Claude Code skills and tools for making reels, shorts and motion videos in code (HyperFrames + GSAP + ElevenLabs + FFmpeg)",
+  "scripts": {
+    "setup:skills": "node setup/install-skills.mjs",
+    "studio:doctor": "node studio/tools/doctor.mjs",
+    "reel:new": "node studio/tools/new-reel.mjs",
+    "voice:find": "node studio/tools/el-voices.mjs",
+    "voice:make": "node studio/tools/el-voice.mjs",
+    "voice:check": "node studio/tools/el-check.mjs",
+    "voice:free": "node studio/tools/edge-voice.mjs",
+    "audio:make": "node studio/tools/el-audio.mjs",
+    "reel:mix": "node studio/tools/mix.mjs",
+    "reel:assign-sfx": "node studio/tools/assign-sfx.mjs",
+    "reel:render": "node studio/tools/render.mjs",
+    "reel:frames": "node studio/tools/frames.mjs",
+    "reel:judge": "node studio/tools/judge-pack.mjs",
+    "sfx:find": "node studio/tools/sfx-library.mjs find",
+    "sfx:catalog": "node studio/tools/sfx-library.mjs catalog",
+    "sfx:fetch": "node studio/tools/sfx-library.mjs fetch",
+    "prompts:studio": "node studio/tools/build-prompt-studio.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@andresaya/edge-tts": "1.9.1",
+    "ffmpeg-static": "5.3.0",
+    "gsap": "3.15.0",
+    "playwright": "1.64.1",
+    "sharp": "0.34.5"
+  },
+  "devDependencies": {
+    "hyperframes": "0.9.10"
+  },
+  "allowScripts": {
+    "ffmpeg-static@5.3.0": true,
+    "sharp@0.35.5": true,
+    "sharp@0.34.5": true,
+    "esbuild@0.28.2": true
+  }
+}

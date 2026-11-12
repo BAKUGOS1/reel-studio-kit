@@ -1,0 +1,9 @@
+{
+  "_help": "One entry per speaker in voice.md. Find voices with: node studio/tools/el-voices.mjs search --lang hi --gender male --age old. Add one with: el-voices.mjs add <owner> <voice> --name \"Papa (My brand)\". Lower stability = more emotion (0.3 to 0.5 for drama); language 'hi' forces Hindi pronunciation, leave it out for Hinglish lines heavy in English.",
+  "model": "eleven_v3",
+  "takes": 2,
+  "voices": {
+    "narrator": { "voice_id": "PASTE_VOICE_ID", "name": "Narrator, Hindi male, deep, storyteller", "settings": { "stability": 0.45, "similarity_boost": 0.8 } },
+    "papa": { "voice_id": "PASTE_VOICE_ID", "name": "Papa, about 58, tired, warm", "settings": { "stability": 0.4, "similarity_boost": 0.8 } }
+  }
+}

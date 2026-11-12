@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<!-- A living-illustration reel. One canvas draws every shot from scene.js; one audio track is the mastered mix.
+     Durations marked data-duration-from="reel" are rewritten by studio/tools/mix.mjs from timeline.json. -->
+<script src="assets/lib/gsap.min.js"></script>
+<script src="assets/lib/living.js"></script>
+<script src="assets/lib/motion-kit.js"></script>
+<script src="assets/lib/stopwatch.js"></script>
+<script src="assets/generated/reel-data.js"></script>
+<script src="assets/generated/art-ready.js"></script>
+<style>
+  @font-face { font-family: "Outfit"; font-weight: 100 900; src: url("assets/fonts/Outfit.ttf"); }
+  @font-face { font-family: "Kalam"; font-weight: 700; src: url("assets/fonts/Kalam-Bold.ttf"); }
+  @font-face { font-family: "Bodoni Moda"; font-weight: 400 900; src: url("assets/fonts/BodoniModa.ttf"); }
+  @font-face { font-family: "Cormorant Garamond"; font-weight: 300 700; src: url("assets/fonts/CormorantGaramond.ttf"); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: #1E1A16; }
+  #root { position: relative; width: 100%; height: 100%; }
+  #stage { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="10" data-duration-from="reel" data-width="1080" data-height="1920">
+  <canvas id="stage" class="clip" data-start="0" data-duration="10" data-duration-from="reel" data-track-index="0" width="1080" height="1920"
+          data-layout-allow-caption-zone></canvas>
+  <audio id="mix" class="clip" src="assets/generated/mix.wav" data-start="0" data-duration="10" data-duration-from="reel" data-track-index="1" data-volume="1"></audio>
+</div>
+<script src="scene.js"></script>
+<script>
+  // HyperFrames seeks; the canvas redraws from time alone. Images and canvas fonts load before the first frame
+  // (a canvas never triggers a @font-face by itself, so each face is loaded explicitly).
+  const ctx = document.getElementById('stage').getContext('2d');
+  window.__hf = window.__hf || {}; window.__hf.buildReady = window.__hf.buildReady || {};
+  window.__hf.buildReady.images = Promise.all([...document.images].map(i => i.decode().catch(() => {})))
+    .then(() => Promise.all(['600 40px Outfit', '700 40px Outfit', '800 40px Outfit', '700 40px Kalam', '700 40px "Bodoni Moda"', '700 40px "Cormorant Garamond"'].map(f => document.fonts.load(f, 'Aa 0123 ₹'))))
+    .then(() => Scene.renderAt(ctx, 0));
+  window.addEventListener('hf-seek', e => Scene.renderAt(ctx, e.detail.time));
+  window.__timelines['main'] = gsap.timeline({ paused: true });
+</script>
+</body>
+</html>

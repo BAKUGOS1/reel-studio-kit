@@ -1,0 +1,27 @@
+{
+  "_help": "Which take of each line plays when. 'after' places a line after another with a gap in seconds; 'at' pins it. Optional beat {bpm, offset}: beat zero is at offset seconds; cut and hit times should be authored to this grid. Effects: files in assets/sfx. Music: assets/music, ducked under voices. Run: node studio/tools/mix.mjs src/<slug>",
+  "fps": 30,
+  "duration": "auto",
+  "lead": 0.15,
+  "tail": 1.5,
+  "cues": [
+    {
+      "line": "01",
+      "take": "a"
+    },
+    {
+      "line": "02",
+      "take": "a",
+      "after": "01",
+      "gap": 0.35
+    }
+  ],
+  "sfx": [],
+  "music": null,
+  "master": {
+    "lufs": -14,
+    "tp": -1.5
+  },
+  "channels": 2,
+  "beat": null
+}
