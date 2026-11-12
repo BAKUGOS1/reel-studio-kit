@@ -4,7 +4,7 @@
 // Also writes <out>/full.png (the whole drawing, paper transparent, full resolution) and <out>/points.js (seeded points on the
 // ink with their walk distance, for blooms, sparkles or particles that follow the growth).
 //   node studio/tools/grow-stages.mjs <drawing.png> <out-dir> [--stages 24] [--start bottom-left|bottom|left|top-left] [--paper 228] [--points 1600]
-// Used first for One place v3 (src/one-place, the Codex tree). Draw it in the scene with ready('stage'+k) cross-faded, then full.png.
+// Draw it in the scene with ready('stage'+k) cross-faded, then full.png.
 import fs from 'node:fs'; import path from 'node:path'; import { spawnSync } from 'node:child_process'; import { createRequire } from 'node:module';
 import { args } from './env.mjs';
 const a = args(), [src, outDir] = a._;

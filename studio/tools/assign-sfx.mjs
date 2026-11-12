@@ -86,8 +86,8 @@ print(json.dumps(out, ensure_ascii=False))`;
     if (s.error) { console.log(`${s.event.id}: ${s.error}`); continue; }
     const relativeLib = path.relative(library, s.rank.path).split(path.sep).join('/');
     const source = sourceByFile.get(relativeLib);
-    // Licence-unknown creator packs you add yourself (sources named viewcci or care14) are skipped unless you opt in for a reel with --allow-unknown.
-    if ((source === 'viewcci' || source === 'care14') && !a['allow-unknown']) { console.log(`${s.event.id}: best result is licence-unknown ${source}; skipped (pass --allow-unknown to use it)`); continue; }
+    // Licence-unknown packs you add yourself (source names listed in UNKNOWN below) are skipped unless you opt in for a reel with --allow-unknown.
+    const UNKNOWN = (process.env.SFX_UNKNOWN_SOURCES || 'unknown').split(','); if (UNKNOWN.includes(source) && !a['allow-unknown']) { console.log(`${s.event.id}: best result is licence-unknown ${source}; skipped (pass --allow-unknown to use it)`); continue; }
     // Trim only long files (ambiences, swells). A one-shot plays whole: earshot's window can start after a click's
     // transient (8 Nov 2026: a 0.62 s Kenney switch was trimmed to 0.102–0.150 s, which is digital silence).
     const length = probeSeconds(s.rank.path), long = length > 2;

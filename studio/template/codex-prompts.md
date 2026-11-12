@@ -12,8 +12,8 @@ with the exact file name given, and ask Codex to record each prompt and its atta
 4. Plates, cutouts and props (prompts/04).
 
 ## Attach to every prompt with a person in it
-- the series character sheets: `src/shagun-files/assets/00-character-sheet.png` (and any new sheet below)
-- the style reference: `src/shagun-files/assets/01-hook-mummy.png`
+- the series character sheets: your character sheet, e.g. `src/<series>/assets/00-character-sheet.png` (and any new sheet below)
+- the style reference: one finished picture from the same series, e.g. `src/<series>/assets/01-hook.png`
 
 ## Style lock (paste first)
 <!-- Paste prompts/01-style-lock.md here with this reel's [LIGHT] line. -->

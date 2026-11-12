@@ -47,7 +47,7 @@ for (const w of report.warnings || []) console.warn(`warning ${w.code}: ${w.mess
 
 const raw = path.join(os.tmpdir(), `${slug}-${Date.now()}.mp4`);
 // Parallel Chrome workers: HF_WORKERS (or --workers N), else HyperFrames' "auto". A 4-core server works well with 4:
-// measured 8 Nov on diary-breakup (draft): auto picked 3 = 64.9 s, 4 = 55.3 s, 6 or 8 = 54 s, identical output.
+// measured on a draft reel: auto picked 3 = 64.9 s, 4 = 55.3 s, 6 or 8 = 54 s, identical output.
 const workers = String(a.workers || process.env.HF_WORKERS || 'auto');
 const r = hf('render', '--output', raw, '--fps', '30', '--quality', draft ? 'draft' : 'high', '--workers', workers);
 if (r.status !== 0 || !fs.existsSync(raw)) { console.error(r.stdout.slice(-3000), r.stderr.slice(-3000)); process.exit(1); }

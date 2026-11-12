@@ -101,7 +101,7 @@ if (useMusic) {
 const mixLabel = '[v]', graph = chains.join(';') + ';' + labels.join('') + `amix=inputs=${labels.length}:normalize=0,${pad}${mixLabel}`;
 const pre = path.join(gen, name.replace(/\.wav$/, '-pre.wav')), out = path.join(gen, name);
 // -t caps the file at the reel's length whatever the graph does (7 Nov 2026: a runaway graph wrote a 150 GB mix-pre.wav).
-// The graph goes through a file: a reel with ~140 placed sounds overflowed Windows' 32 k command line (9 Nov 2026, one-place v2).
+// The graph goes through a file: a reel with ~140 placed sounds overflowed Windows' 32 k command line.
 const graphFile = pre.replace(/.wav$/, '-graph.txt'); fs.writeFileSync(graphFile, graph);
 run([...inputs, '-filter_complex_script', graphFile, '-map', mixLabel, '-t', String(duration), '-ac', STEREO ? '2' : '1', '-c:a', 'pcm_f32le', pre]); fs.rmSync(graphFile, { force: true });
 const target = T.master?.lufs ?? -14, ceiling = Math.pow(10, (T.master?.tp ?? -1.5) / 20);
